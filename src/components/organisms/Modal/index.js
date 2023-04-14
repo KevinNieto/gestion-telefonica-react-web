@@ -1,18 +1,17 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ModalContent } from "../molecules/ModalContent";
-import { ModalContentInformation } from "../molecules/ModalContentInformation";
+import { ModalContent } from "../../molecules";
 
-export const ModalInfoCosto = ({modalInformation, setModalInformation}) => {
+const Modal = ({modalOpen, setModalOpen}) => {
 
 
   const closeModal = () => {
-    setModalInformation(false)
+    setModalOpen(false)
   };
 
 
   return (
-    <Transition.Root show={modalInformation} as={Fragment}>
+    <Transition.Root show={modalOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
@@ -25,7 +24,7 @@ export const ModalInfoCosto = ({modalInformation, setModalInformation}) => {
         >
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
-        <ModalContentInformation setModalInformation={setModalInformation} />
+        <ModalContent/>
         
 
         
@@ -35,3 +34,4 @@ export const ModalInfoCosto = ({modalInformation, setModalInformation}) => {
     </Transition.Root>
   );
 };
+export default Modal;

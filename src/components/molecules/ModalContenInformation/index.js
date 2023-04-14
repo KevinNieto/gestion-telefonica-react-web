@@ -1,11 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import FormularioCentroCosto from "../atoms/FormCentroCosto";
-
-
 
 //COMIENZO DEL COMPONENTE
-export const ModalContentInformation = ({setModalInformation}) => {
+
+const ModalContentInformation = ({setModalInformation}) => {
   const closeModal = () => {
     setModalInformation(false)
   };
@@ -66,3 +64,5 @@ export const ModalContentInformation = ({setModalInformation}) => {
     </div>
   );
 };
+
+export default ModalContentInformation;

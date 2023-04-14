@@ -5,9 +5,10 @@ import {
     Route
   } from "react-router-dom";
 
-import Departamentos from '../components/views/Departamentos';
-import CentroCosto from '../components/views/CentroCosto';
+
 import Sidebar from '../components/ui/Sidebar';
+import {AddEditDepartamento, CentroCosto, Departamentos } from '../components/views';
+
 
 export const AppRouter = () => {
 
@@ -18,13 +19,9 @@ export const AppRouter = () => {
                 <Sidebar/>
                 <Routes>
                 
-                <Route 
-                        path="/"
-                        element={
-                            <Departamentos/>         
-                        }
-                />
-                  <Route path="/centro-costo" element={<CentroCosto />  } />
+                <Route path="/" element={<Departamentos/>     }/>
+                <Route path="/centro-costo" element={<CentroCosto />  } />
+                <Route path="/informacion/*" element={<AddEditDepartamento />  } />
                     
                     
                     

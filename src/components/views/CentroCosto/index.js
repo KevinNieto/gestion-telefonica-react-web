@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import { Modal, ModalInfoCosto, TablaCentroCosto } from '../../organisms';
 
-import TablaCentroCosto from '../organisms/TablaCentroCosto';
-import { Modal } from '../organisms/Modal';
-import { ModalInfoCosto } from '../organisms/ModalInfoCosto';
+
 
 const CentroCosto = () => {
     const [modalOpen, setModalOpen] = useState(false)

@@ -2,11 +2,11 @@ import { InformationCircleIcon, PencilIcon, TrashIcon } from '@heroicons/react/o
 import { TableCell } from '@mui/material'
 import Swal from 'sweetalert2'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export const AccionesCentros = ({setModalInformation, setModalOpen}) => {
-  const openModalInformation = () => {
-    setModalInformation(true)
-  };
+const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
+  const navigate = useNavigate()
+
   
   const openModal = () => {
     setModalOpen(true)
@@ -34,15 +34,23 @@ export const AccionesCentros = ({setModalInformation, setModalOpen}) => {
     })
      
   }
+
+  const handleInformation = (e) => {
+    e.preventDefault()
+
+    navigate(`/informacion/12312`)
+    
+  }
+  
   
   
   return (
     <TableCell align="right">
                 <button
                   type="button"
-                  onClick={openModalInformation}
+                  onClick={handleInformation}
                   className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-1 rounded"
-          
+                  
                 >
                   <InformationCircleIcon className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -66,3 +74,4 @@ export const AccionesCentros = ({setModalInformation, setModalOpen}) => {
     </TableCell>
   )
 }
+export default AccionesDepartamentos;

@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import FormularioCentroCosto from "../atoms/FormCentroCosto";
-
+import { FormularioCentroCosto } from "../../atoms";
 
 
 //COMIENZO DEL COMPONENTE
-export const ModalContent = () => {
+const ModalContent = () => {
 
 
 
@@ -44,3 +43,5 @@ export const ModalContent = () => {
     </div>
   );
 };
+
+export default ModalContent;

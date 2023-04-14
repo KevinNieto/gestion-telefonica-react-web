@@ -7,24 +7,31 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { AccionesCentros } from '../molecules/AccionesCentros';
-import AgregarButton from '../atoms/AgregarButton';
+import { AgregarButton } from '../../atoms';
+import { AccionesDepartamentos } from '../../molecules';
 
-const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
 
+const TablaDepartamentos = ({setModalOpen, setModalInformation}) => {
+  const openModal = () => {
+    setModalOpen(true)
+  };
     return ( 
-        <div className=" px-6 ">
-            <h1 className="text-2xl font-light mb-2">Tabla Centro de Costos</h1>
-            <div className='flex justify-right  mx-auto'>
-                <AgregarButton setModalOpen={setModalOpen}/>
+        <div className="pt-6 px-6 ">
+            <h1 className="pl-20 text-2xl font-light mb-2">Tabla Departamentos</h1>
+            <div className='pl-20 flex justify-right  mx-auto'>
+                <AgregarButton title={"Nuevo Departamento"} event={openModal}/>
             </div>
-            <div className='pt-3 flex justify-center max-w-5xl mx-auto'>
+            <div className='pt-3 flex justify-start max-w-5xl mx-auto'>
                 
             <TableContainer component={Paper} >
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Nombre</TableCell>
+                    <TableCell>Limite</TableCell>
+                    <TableCell>Usadas</TableCell>
+                    <TableCell>Disponibles</TableCell>
+                    <TableCell>Centros</TableCell>
                     <TableCell align="right">Accion</TableCell>
                   </TableRow>
                 </TableHead>
@@ -40,8 +47,25 @@ const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
                       <TableCell component="th" scope="row">
                         Prueba
                       </TableCell>
+
+                      <TableCell component="th" scope="row">
+                        4
+                      </TableCell>
+
+                      <TableCell component="th" scope="row">
+                        3
+                      </TableCell>
+
+                      <TableCell component="th" scope="row">
+                        1
+                      </TableCell>
+
+                      <TableCell component="th" scope="row">
+                        1
+                      </TableCell>
+
     
-                      <AccionesCentros
+                      <AccionesDepartamentos
                           setModalInformation={setModalInformation}
                           setModalOpen={setModalOpen}
                
@@ -66,4 +90,4 @@ const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
      );
 }
  
-export default TablaCentroCosto;
+export default TablaDepartamentos;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { PlusIcon } from '@heroicons/react/outline'
 
 const FormularioCentroCosto = () => {
 
