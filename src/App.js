@@ -1,13 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import { AppRouter } from './router/AppRouter';
 
 function App() {
   return (
-    <div className="App">
-       <h1 class="text-3xl font-bold text-red-400 underline">
-          Hello world with TailWind!
-        </h1>
-    </div>
+    <div className="md:flex min-h-screen">
+    
+          
+            <AppRouter/>
+        
+      </div>
   );
 }
 
