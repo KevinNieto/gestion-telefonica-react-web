@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import { AccionesCentros } from '../molecules/AccionesCentros';
 import AgregarButton from '../atoms/AgregarButton';
 
-const TablaCentroCosto = ({setModalOpen}) => {
+const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
 
     return ( 
         <div className=" px-6 ">
@@ -41,7 +41,12 @@ const TablaCentroCosto = ({setModalOpen}) => {
                         Prueba
                       </TableCell>
     
-                      <AccionesCentros/>
+                      <AccionesCentros
+                          setModalInformation={setModalInformation}
+                          setModalOpen={setModalOpen}
+               
+               
+                      />
                       
                      
                       
