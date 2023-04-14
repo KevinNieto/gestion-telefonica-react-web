@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { FormularioCentroCosto } from "../../atoms";
+import { FormularioCentroCosto, FormularioDepartamento } from "../../atoms";
 
 
 //COMIENZO DEL COMPONENTE
-const ModalContentDepartamento = () => {
+const ModalContent = () => {
 
 
 
@@ -32,7 +32,7 @@ const ModalContentDepartamento = () => {
                   >
                     Ingresa los Datos del Centro de Costo
                   </Dialog.Title>
-                  <FormularioCentroCosto/>
+                  <FormularioDepartamento/>
                 </div>
               </div>
             </div>
@@ -44,4 +44,4 @@ const ModalContentDepartamento = () => {
   );
 };
 
-export default ModalContentDepartamento;
+export default ModalContent;

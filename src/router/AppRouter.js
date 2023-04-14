@@ -21,7 +21,7 @@ export const AppRouter = () => {
                 
                 <Route path="/" element={<Departamentos/>     }/>
                 <Route path="/centro-costo" element={<CentroCosto />  } />
-                <Route path="/informacion/*" element={<AddEditDepartamento />  } />
+                <Route path="/departamento/*" element={<AddEditDepartamento />  } />
                     
                     
                     

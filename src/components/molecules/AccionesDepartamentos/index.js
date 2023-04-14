@@ -8,8 +8,9 @@ const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
   const navigate = useNavigate()
 
   
-  const openModal = () => {
-    setModalOpen(true)
+  const handleEdit = (e) => {
+    e.preventDefault()
+    navigate(`/departamento/12312`)
   };
 
   const handleDelete = (e) => {
@@ -37,9 +38,7 @@ const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
 
   const handleInformation = (e) => {
     e.preventDefault()
-
-    navigate(`/informacion/12312`)
-    
+    setModalInformation(true)
   }
   
   
@@ -57,7 +56,7 @@ const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
                 <button
                   type="button"
                   className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 mr-1 rounded"
-                  onClick={openModal}
+                  onClick={handleEdit}
                 >
                   <PencilIcon className="h-4 w-4" aria-hidden="true" />
                   

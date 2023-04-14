@@ -9,12 +9,16 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { AgregarButton } from '../../atoms';
 import { AccionesDepartamentos } from '../../molecules';
+import { useNavigate } from 'react-router-dom';
 
 
 const TablaDepartamentos = ({setModalOpen, setModalInformation}) => {
+  const navigate = useNavigate()
   const openModal = () => {
     setModalOpen(true)
   };
+
+  
     return ( 
         <div className="pt-6 px-6 ">
             <h1 className="pl-20 text-2xl font-light mb-2">Tabla Departamentos</h1>

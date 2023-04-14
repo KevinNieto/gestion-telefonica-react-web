@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, ModalInfoCosto, TablaDepartamentos } from '../../organisms';
+import ModalDepartamento from '../../organisms/ModalDepartamento';
 
 
 const Departamentos = () => {
@@ -16,7 +17,7 @@ const Departamentos = () => {
                 
                 />
             </div>
-            <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+            <ModalDepartamento modalOpen={modalOpen} setModalOpen={setModalOpen}/>
             <ModalInfoCosto modalInformation={modalInformation} setModalInformation={setModalInformation}/>
 
            
