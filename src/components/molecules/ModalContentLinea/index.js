@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { FormularioDepartamento } from "../../atoms";
+import { FormularioLinea } from "../../atoms";
 
 
 //COMIENZO DEL COMPONENTE
-const ModalContent = () => {
+const ModalContent = ({setModalOpen}) => {
 
 
 
@@ -30,9 +30,9 @@ const ModalContent = () => {
                     as="h3"
                     className="text-center text-lg leading-6 font-medium text-gray-900"
                   >
-                    Ingresa los Datos del Centro de Costo
+                    Ingresa la linea de telefono
                   </Dialog.Title>
-                  <FormularioDepartamento/>
+                  <FormularioLinea setModalOpen={setModalOpen}/>
                 </div>
               </div>
             </div>

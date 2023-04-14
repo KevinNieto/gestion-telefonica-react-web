@@ -1,12 +1,22 @@
-import React from 'react';
-import { AgregarButton, FormularioDepartamento } from '../../atoms';
-import { AgregarCentroCosto, TablaCentrosCostoAsignados, TablaLineasAsignadas } from '../../organisms';
+import React, { useState } from 'react';
+import { AgregarButton, CloseButton, FormularioDepartamento } from '../../atoms';
+import { AgregarCentroCosto, ModalLinea, TablaCentrosCostoAsignados, TablaLineasAsignadas } from '../../organisms';
 
 
 const AddEditDepartamento = () => {
+    const [modalOpen, setModalOpen] = useState(false)
     const addLinea = () => {
-        console.log("Agregar Linea");
+        setModalOpen(true)
       };
+
+      const saveDeparment = () => {
+        console.log("Guardar Departamento");
+      };
+
+      const handleReturn = () => {
+        console.log("Guardar Departamento");
+      };
+
     return ( 
         <>
             
@@ -52,14 +62,32 @@ const AddEditDepartamento = () => {
 
                     
                 </div>
-                <div className="px-24 grid grid-cols-2 gap-2">
+                <div className="px-24 grid grid-cols-1 gap-1">
                         <p className="text-sm pt-7  text-gray-900">
+                          Total Utilizasdas: 7
+                        </p>
+                        <p className="text-sm text-gray-900">
                           Lineas Disponibles: 7
                         </p>
                     
                 </div>
+                <div className="px-20 pt-7  grid grid-cols-1 gap-1">
+                        <AgregarButton
+                            event={saveDeparment}
+                            title={"Guardar"}
+                        />
+                    
+                </div>
+                <div className="px-20 pt-2  grid grid-cols-1 gap-1">
+                        <CloseButton
+                            event={handleReturn}
+                            title={"Regresar"}
+                        />
+                    
+                </div>
                
             </div>
+            <ModalLinea modalOpen={modalOpen} setModalOpen={setModalOpen} />
 
            
         </>

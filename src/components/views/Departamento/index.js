@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, ModalInfoCosto, TablaDepartamentos } from '../../organisms';
+import {  ModalInfoDepartamento, TablaDepartamentos } from '../../organisms';
 import ModalDepartamento from '../../organisms/ModalDepartamento';
 
 
@@ -18,7 +18,7 @@ const Departamentos = () => {
                 />
             </div>
             <ModalDepartamento modalOpen={modalOpen} setModalOpen={setModalOpen}/>
-            <ModalInfoCosto modalInformation={modalInformation} setModalInformation={setModalInformation}/>
+            <ModalInfoDepartamento modalInformation={modalInformation} setModalInformation={setModalInformation}/>
 
            
         </>

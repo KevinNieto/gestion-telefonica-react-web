@@ -6,5 +6,8 @@ export { default as TablaDepartamentos } from "./TablaDepartamentos";
 export { default as TablaCentrosCostoAsignados } from "./TablaCentrosCostoAsignados";
 export { default as TablaLineasAsignadas } from "./TablaLineasAsignadas";
 export { default as AgregarCentroCosto } from "./AgregarCentroCosto";
+export { default as ModalLinea } from "./ModalLinea";
+export { default as ModalInfoDepartamento } from "./ModalInfoDepartamento";
+export { default as ContentCentrosLinea } from "./ContentCentrosLinea";
 
 

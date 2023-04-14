@@ -1,12 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'
 
-const FormularioDepartamento = () => {
-    const navigate = useNavigate()
+const FormularioLinea = ({setModalOpen}) => {
+  
 
-    const handleEdit = (e) => {
-        e.preventDefault()
-        navigate(`/departamento/12312`)
+    const handleEdit = () => {
+    
+        setModalOpen(false)
       };
     return ( 
        <>
@@ -19,26 +18,13 @@ const FormularioDepartamento = () => {
                               <input
 
                                     name='nombre'
-                                    type="text"
+                                    type="number"
                                     required
                                     className={`mr-1 appearance-none flex  rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm `}
-                                    placeholder="Nombre del Centro"
+                                    placeholder="Linea telefonica"
 
                                     />
                     </div>
-                    <div 
-                        className={`mb-1`}
-                    >
-
-                        <input
-                            name='limite'
-                            type="text"
-                            required
-                            className={` items-start justify-start text-start mr-1 appearance-none rounded-none relative block w-full  px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
-                            placeholder="Limite de Lineas"
-
-                        />
-                   </div>
                    <div 
                         className={`mb-1`}
                         >
@@ -46,10 +32,10 @@ const FormularioDepartamento = () => {
                      
                       <button
                             onClick={handleEdit}
-                            type="submit"
+                        
                             className="bg-purple-500 w-full hover:bg-green-700 text-white text-sm font-bold py-2   rounded"
                             >
-                              Opciones Avanzadas
+                              Guardar
                       </button>
                   </div>
                    
@@ -63,4 +49,4 @@ const FormularioDepartamento = () => {
      );
 }
  
-export default FormularioDepartamento;
+export default FormularioLinea;
