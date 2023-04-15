@@ -4,6 +4,8 @@ import { AgregarCentroCosto, ModalLinea, TablaCentrosCostoAsignados, TablaLineas
 import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from '../../../actions/ui';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { clearActiveDepartamento, departamentoUpdated } from '../../../actions/departamentos';
 
 const initDepartamento = {
     nombre: '',
@@ -13,20 +15,26 @@ const initDepartamento = {
 
 
 const AddEditDepartamento = () => {
+    const { lineas } = useSelector( state => state.lineas );
+    const { temporales } = useSelector( state => state.temporales );
+    const centrosCount=temporales.length
     const navigate = useNavigate()
     const dispatch = useDispatch();
     let usadasD ='NA'
     let disponiblesD ='NA'
+    let idN= 'NA'
 
     const { activeDepartamento } = useSelector( state => state.departamentos );
     if (activeDepartamento) {
         const {
-            usadas,
+            id,
+            limite,
             disponibles,
         }=activeDepartamento; 
 
-        usadasD =usadas
-        disponiblesD =disponibles
+        usadasD =lineas.length
+        disponiblesD =limite-usadasD 
+        idN= id
         
         
 
@@ -34,16 +42,45 @@ const AddEditDepartamento = () => {
 
     const [formValues, setFormValues] = useState( initDepartamento);
     const {nombre, limite } = formValues;
+    disponiblesD =limite-usadasD 
 
 
 
 
 
     const addLinea = () => {
-        dispatch( uiOpenModal() );
+        if (disponiblesD !==0) {
+            dispatch( uiOpenModal() );
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Limite Alcanzado'
+              })
+        }
+        
       };
 
       const handleNuevoDepartamento = () => {
+        const {nombre, limite } = formValues;
+
+        const departamentoNuevo = {
+            id: idN,
+            nombre, 
+            limite,
+            usadas: usadasD,
+            disponibles: disponiblesD,
+            centros: centrosCount,
+            centrosAsignados: temporales,
+            lineasAsignadas: lineas
+        }
+        dispatch( departamentoUpdated( departamentoNuevo ) )
+        dispatch( clearActiveDepartamento() );
+        Swal.fire(
+          'Departamento actualizado con exito!',
+          '',
+          'success'
+        )
         navigate(`/`)
       };
 
