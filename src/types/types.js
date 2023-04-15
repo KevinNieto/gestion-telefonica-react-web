@@ -20,5 +20,18 @@ export const types = {
     departamentoUpdated: '[departamento] departamento updated',
     departamentoDeleted: '[departamento] departamento deleted',
 
+    temporalAddNew: '[temporal] Add new',
+    temporalDeleted: '[temporal] temporal deleted',
+    clearTemporal: '[temporal] Clear temporal',
+    temporalSetActive: '[temporal] Set Active',
+    clearActiveTemporal: '[temporal] Clear active Temporal',
+
+    lineaAddNew: '[linea] Add new',
+    lineaDeleted: '[linea] linea deleted',
+    clearLinea: '[linea] Clear linea',
+    lineaSetActive: '[linea] Set Active',
+    clearActiveLinea: '[linea] Clear active linea',
+
+
 
 }

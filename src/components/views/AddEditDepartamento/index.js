@@ -32,7 +32,6 @@ const AddEditDepartamento = () => {
 
     }
 
-
     const [formValues, setFormValues] = useState( initDepartamento);
     const {nombre, limite } = formValues;
 
@@ -61,6 +60,7 @@ const AddEditDepartamento = () => {
           setFormValues( initDepartamento );
         }
      }, [activeDepartamento, setFormValues])
+
 
       const handleInputChange = ({ target }) => {
         setFormValues({
@@ -112,27 +112,34 @@ const AddEditDepartamento = () => {
                     
                 
                 </div>
+
+               
                 <div className="px-24 grid grid-cols-2 gap-2">
+                     {/* Centros Asignados */}
                     <div className=" w-full">
-                        <TablaCentrosCostoAsignados/>
+                        <TablaCentrosCostoAsignados />
 
                     </div>
+                    {/* Centros Disponibles */}
                     <div className=" w-full">
                         <p className="text-sm pt-7 font-medium text-gray-900">
                           Centros de Costo Disponibles:
                         </p>
-                        <AgregarCentroCosto/>
+                        <AgregarCentroCosto />
 
                     </div>
                 </div>
 
+                
                 <div className="px-24 grid grid-cols-2 gap-2">
+                    {/* Lineas Asignados */}
                     <div className=" w-full">
                         <TablaLineasAsignadas/>
 
                     </div>
                     
                 </div>
+                {/* Lineas Agregar */}
                 <div className="px-24 grid grid-cols-2 gap-2">
                         <AgregarButton
                             event={addLinea}

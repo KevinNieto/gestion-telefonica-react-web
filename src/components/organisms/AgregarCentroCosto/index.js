@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BotonAgregarCentro } from '../../atoms';
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 const AgregarCentroCosto = () => {
   const { centros } = useSelector( state => state.centros );
+  const [centrosTemporales, setCentrosTemporales] = useState(centros)
+  console.log("centros temporales", centrosTemporales);
+
+
+
+
   return (
 
     <>
@@ -16,7 +23,9 @@ const AgregarCentroCosto = () => {
         
                             </ul>
                       </div>
-                      <BotonAgregarCentro /> 
+                      <BotonAgregarCentro 
+                          row={row}
+                      /> 
                   </div>
     
             ))   
