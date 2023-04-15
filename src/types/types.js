@@ -14,4 +14,11 @@ export const types = {
     centroDeleted: '[centro] Centro deleted',
 
 
+    departamentoSetActive: '[departamento] Set Active',
+    departamentoAddNew: '[departamento] Add new',
+    clearActiveDepartamento: '[departamento] Clear active departamento',
+    departamentoUpdated: '[departamento] departamento updated',
+    departamentoDeleted: '[departamento] departamento deleted',
+
+
 }

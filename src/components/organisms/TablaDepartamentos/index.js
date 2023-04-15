@@ -10,11 +10,12 @@ import Paper from '@mui/material/Paper';
 import { AgregarButton } from '../../atoms';
 import { AccionesDepartamentos } from '../../molecules';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from '../../../actions/ui';
 
 
 const TablaDepartamentos = () => {
+  const { departamentos } = useSelector( state => state.departamentos ); 
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -42,45 +43,24 @@ const TablaDepartamentos = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-              
+                {
+       
                      
                   
-            
+                  departamentos.map((row) => (                                                
                     <TableRow
-                      key={1}
+                      key={row.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">
-                        Prueba
-                      </TableCell>
-
-                      <TableCell component="th" scope="row">
-                        4
-                      </TableCell>
-
-                      <TableCell component="th" scope="row">
-                        3
-                      </TableCell>
-
-                      <TableCell component="th" scope="row">
-                        1
-                      </TableCell>
-
-                      <TableCell component="th" scope="row">
-                        1
-                      </TableCell>
-
-    
-                      <AccionesDepartamentos
-             
-
-               
-                      />
-                      
-                     
-                      
+                      <TableCell component="th" scope="row">{row.nombre}</TableCell>
+                      <TableCell component="th" scope="row">{row.limite}</TableCell>
+                      <TableCell component="th" scope="row">{row.usadas}</TableCell>
+                      <TableCell component="th" scope="row">{row.disponibles}</TableCell>
+                      <TableCell component="th" scope="row">{row.centros}</TableCell>
+                      <AccionesDepartamentos row={row}  />                                           
                     </TableRow>
-
+                   ))                  
+                  }
                  
                 
                 
