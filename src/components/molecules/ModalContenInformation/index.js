@@ -1,16 +1,22 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
+import { centroClearActiveCentro } from "../../../actions/centros";
 
 //COMIENZO DEL COMPONENTE
 
 const ModalContentInformation = ({setModalInformation}) => {
+  const { activeCentro } = useSelector( state => state.centros );
+  const {name, descripcion}= activeCentro;
+
+
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch( noActiveInformation() );
     dispatch( uiCloseModal()) ;
+    dispatch(centroClearActiveCentro()); 
   };
 
 
@@ -40,9 +46,9 @@ const ModalContentInformation = ({setModalInformation}) => {
                   </Dialog.Title>
                   <div className="col-span-1 sm:col-span-3">
                       {/* Aqui metes esa  papada */}
-                      <ul className=" text-md space-y-2">
-                         <li className="text-gray-900"> <b>Nombre: </b> BAC</li>
-                         <li className="text-gray-900"> <b>Descripcion: </b>Esta es la Descripcion del centro de costo larguisima por cierto</li>
+                      <ul className=" text-md pt-2">
+                         <li className="text-gray-900"> <b>Nombre: </b> {name}</li>
+                         <li className="text-gray-900"> <b>Descripcion: </b>{descripcion}</li>
 
                      </ul>
                   </div>

@@ -8,8 +8,8 @@ const Departamentos = () => {
     return ( 
         <>
             
-            <div className="md:w-2/5 xl:w-4/5 p-6">
-                <h1 className="text-3xl font-light ">DEPARTAMENTOS</h1>
+            <div className="md:w-2/5 xl:w-4/5 px-6 pt-10">
+                <h1 className="text-3xl font-light ml-6 font-bold mb-2 ">DEPARTAMENTOS</h1>
                 <TablaDepartamentos
                 
                 

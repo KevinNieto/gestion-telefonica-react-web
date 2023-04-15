@@ -4,10 +4,13 @@ import { ModalContenInformation, ModalContent } from "../../molecules";
 import { useDispatch, useSelector } from "react-redux";
 import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
 
+
+
 const Modal = ({modalInformation, setModalInformation}) => {
   const { modalOpen } = useSelector( state => state.ui );
   const { information } = useSelector( state => state.ui );
   const dispatch = useDispatch();
+
 
 
 

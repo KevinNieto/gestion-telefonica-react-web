@@ -20,4 +20,4 @@ export const centroUpdated = ( centro ) => ({
 
 export const centroClearActiveCentro = () => ({ type: types.centroClearActiveCentro });
 
-export const centroDeleted = () => ({ type: types.eventDeleted });
+export const centroDeleted = () => ({ type: types.centroDeleted });

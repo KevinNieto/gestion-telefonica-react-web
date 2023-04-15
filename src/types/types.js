@@ -11,7 +11,7 @@ export const types = {
     centroAddNew: '[centro] Add new',
     centroClearActiveCentro: '[centro] Clear active centro',
     centroUpdated: '[centro] Centro updated',
-    centroDeleted: '[centro] Event deleted',
+    centroDeleted: '[centro] Centro deleted',
 
 
 }

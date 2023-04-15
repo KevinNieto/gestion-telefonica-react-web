@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,14 +10,22 @@ import Paper from '@mui/material/Paper';
 import { AgregarButton } from '../../atoms';
 import { AccionesCentros } from '../../molecules';
 import { uiOpenModal } from '../../../actions/ui';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const TablaCentroCosto = () => {
+  const { centros } = useSelector( state => state.centros ); 
+  const { modalOpen } = useSelector( state => state.ui );
   const dispatch = useDispatch();
 
   const openModal = () => {
     dispatch( uiOpenModal() );
   };
+
+  useEffect(() => {
+
+     
+}, [ modalOpen ]);
+
     return ( 
         <div className=" px-6 ">
             <h1 className="text-2xl font-light mb-2">Tabla Centro de Costos</h1>
@@ -35,27 +43,27 @@ const TablaCentroCosto = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-              
+                {
+       
+                     
+                  
+                    centros.map((row) => (
+                     <TableRow
+                       key={row.id}
+                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                     >
+                         <TableCell component="th" scope="row">
+                           {row.name}
+                         </TableCell>
+                         <AccionesCentros row={row}/>
+                      </TableRow>
+
+                   ))                  
+                 }
                      
                   
             
-                    <TableRow
-                      key={1}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        Prueba
-                      </TableCell>
-    
-                      <AccionesCentros
 
-               
-               
-                      />
-                      
-                     
-                      
-                    </TableRow>
 
                  
                 

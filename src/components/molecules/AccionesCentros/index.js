@@ -4,18 +4,38 @@ import Swal from 'sweetalert2'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { activeInformation, uiOpenModal } from '../../../actions/ui'
+import { centroDeleted, centroSetActive } from '../../../actions/centros'
 
- const AccionesCentros = () => {
+ const AccionesCentros = ({row}) => {
   const dispatch = useDispatch();
 
   const openModalInformation = () => {
+    dispatch( centroSetActive(row) )
     dispatch( activeInformation() );
     dispatch( uiOpenModal() );
+
   };
   
 
-  const openModal = () => {
-    dispatch( uiOpenModal() );
+  const handleEdit = () => {
+    Swal.fire({
+      title: '¿Quieres actualizar este punto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('Entro aqui con exito', row); 
+        dispatch( centroSetActive(row) ) 
+        dispatch( uiOpenModal() );
+      }   
+    })
+    
+    
+    
+   
   };
 
   const handleDelete = (e) => {
@@ -34,6 +54,8 @@ import { activeInformation, uiOpenModal } from '../../../actions/ui'
           '',
           'success'
         )
+        dispatch( centroSetActive(row) ) 
+        dispatch( centroDeleted())
         
       }
       
@@ -55,7 +77,7 @@ import { activeInformation, uiOpenModal } from '../../../actions/ui'
                 <button
                   type="button"
                   className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 mr-1 rounded"
-                  onClick={openModal}
+                  onClick={handleEdit}
                 >
                   <PencilIcon className="h-4 w-4" aria-hidden="true" />
                   
