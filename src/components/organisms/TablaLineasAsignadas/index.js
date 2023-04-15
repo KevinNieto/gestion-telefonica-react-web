@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 
 
-import { CeldaCentroCosto } from '../../molecules';
+import { CeldaCentroCosto, CeldaLinea } from '../../molecules';
 import { useSelector } from 'react-redux';
 
 
@@ -24,7 +24,7 @@ const TablaLineasAsignadas = () => {
             <TableBody>
             {
               lineas.map((row) => (
-                <CeldaCentroCosto row={row}/>
+                <CeldaLinea row={row}/>
                 ))                  
               }
             </TableBody>

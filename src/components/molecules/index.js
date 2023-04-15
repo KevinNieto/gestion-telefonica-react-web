@@ -7,3 +7,4 @@ export { default as ModalContentDepartamento } from "./ModalContentDepartamento"
 export { default as ModalContentLinea } from "./ModalContentLinea";
 export { default as CeldaCentroCosto } from "./CeldaCentroCosto";
 export { default as CeldaCentroLinea } from "./CeldaCentroLinea";
+export { default as CeldaLinea } from "./CeldaLinea";

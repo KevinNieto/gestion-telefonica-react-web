@@ -5,18 +5,19 @@ import { TrashIcon } from "@heroicons/react/outline";
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { clearActiveTemporal, temporalDeleted, temporalSetActive } from '../../../actions/temporal';
+import { clearActiveLinea, lineaDeleted, lineaSetActive } from '../../../actions/linea';
 
 
-const CeldaPuntodeReferencia = ({row}) => {
+const CeldaLinea = ({row}) => {
   const dispatch = useDispatch();
     const handleDelete = () => {
-      dispatch(temporalSetActive(row))
-      dispatch(temporalDeleted(row));
-      dispatch(clearActiveTemporal())
+      dispatch(lineaSetActive(row))
+      dispatch(lineaDeleted(row));
+      dispatch(clearActiveLinea())
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Centro retirado con exito',
+          title: 'Linea retirado con exito',
           showConfirmButton: false,
           timer: 800
         })
@@ -83,4 +84,4 @@ const CeldaPuntodeReferencia = ({row}) => {
   )
 }
 
-export default CeldaPuntodeReferencia;
+export default CeldaLinea;

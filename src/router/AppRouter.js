@@ -7,7 +7,7 @@ import {
 
 
 import Sidebar from '../components/ui/Sidebar';
-import {AddEditDepartamento, CentroCosto, Departamentos } from '../components/views';
+import {AddEditDepartamento, CentroCosto, Departamentos, Linea } from '../components/views';
 
 
 export const AppRouter = () => {
@@ -21,6 +21,7 @@ export const AppRouter = () => {
                 
                 <Route path="/" element={<Departamentos/>     }/>
                 <Route path="/centro-costo" element={<CentroCosto />  } />
+                <Route path="/linea" element={<Linea />  } />
                 <Route path="/departamento/*" element={<AddEditDepartamento />  } />
                     
                     
