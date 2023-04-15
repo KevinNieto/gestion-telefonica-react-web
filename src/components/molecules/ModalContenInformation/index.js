@@ -1,11 +1,16 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { useDispatch } from "react-redux";
+import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
 
 //COMIENZO DEL COMPONENTE
 
 const ModalContentInformation = ({setModalInformation}) => {
+  const dispatch = useDispatch();
+
   const closeModal = () => {
-    setModalInformation(false)
+    dispatch( noActiveInformation() );
+    dispatch( uiCloseModal()) ;
   };
 
 

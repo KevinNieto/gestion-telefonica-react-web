@@ -2,14 +2,20 @@ import { InformationCircleIcon, PencilIcon, TrashIcon } from '@heroicons/react/o
 import { TableCell } from '@mui/material'
 import Swal from 'sweetalert2'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { activeInformation, uiOpenModal } from '../../../actions/ui'
 
  const AccionesCentros = ({setModalInformation, setModalOpen}) => {
+  const dispatch = useDispatch();
+
   const openModalInformation = () => {
-    setModalInformation(true)
+    dispatch( activeInformation() );
+    dispatch( uiOpenModal() );
   };
   
+
   const openModal = () => {
-    setModalOpen(true)
+    dispatch( uiOpenModal() );
   };
 
   const handleDelete = (e) => {

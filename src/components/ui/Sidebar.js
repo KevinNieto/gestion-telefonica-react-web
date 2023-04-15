@@ -10,8 +10,8 @@ const Sidebar = () => {
                 <p className="mt-3 text-gray-600">Administra las lineas telefonicas de los Departamentos</p>
 
                 <nav className="mt-10">
-                    <NavLink className="p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900" activeClassName="text-yellow-500" exact="true" to="/">Departamentos</NavLink>
-                    <NavLink className="p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900" activeClassName="text-yellow-500" exact="true" to="/centro-costo">Centro de Costos</NavLink>
+                    <NavLink className="p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900" exact="true" to="/">Departamentos</NavLink>
+                    <NavLink className="p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900" exact="true" to="/centro-costo">Centro de Costos</NavLink>
                 </nav>
             </div>
         </div>

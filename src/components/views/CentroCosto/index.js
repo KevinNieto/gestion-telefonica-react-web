@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Modal, ModalInfoCosto, TablaCentroCosto } from '../../organisms';
+import { Modal, TablaCentroCosto } from '../../organisms';
+import { useSelector } from 'react-redux';
 
 
 
 const CentroCosto = () => {
-    const [modalOpen, setModalOpen] = useState(false)
-    const [modalInformation, setModalInformation] = useState(true)
+    const [modalInformation, setModalInformation] = useState(false)
     return (
         <>
         <div className="md:w-2/5 xl:w-4/5 p-6 pt-10">
@@ -14,7 +14,7 @@ const CentroCosto = () => {
 
             {/* <FormularioCentroCosto/> */}
             <TablaCentroCosto 
-                setModalOpen={setModalOpen}
+    
                 setModalInformation={setModalInformation}
             
             />
@@ -23,8 +23,7 @@ const CentroCosto = () => {
         
         
         </div>
-        <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
-        <ModalInfoCosto modalInformation={modalInformation} setModalInformation={setModalInformation}/>
+        <Modal modalInformation={modalInformation} setModalInformation={setModalInformation}/>
         </> 
      );
 }

@@ -9,10 +9,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { AgregarButton } from '../../atoms';
 import { AccionesCentros } from '../../molecules';
+import { uiOpenModal } from '../../../actions/ui';
+import { useDispatch } from 'react-redux';
 
 const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
+  const dispatch = useDispatch();
+
   const openModal = () => {
-    setModalOpen(true)
+    dispatch( uiOpenModal() );
   };
     return ( 
         <div className=" px-6 ">
