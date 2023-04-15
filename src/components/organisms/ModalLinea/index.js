@@ -1,13 +1,20 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ModalContent, ModalContentDepartamento, ModalContentLinea } from "../../molecules";
+import {  ModalContentLinea } from "../../molecules";
+import { uiCloseModal } from "../../../actions/ui";
+import { useDispatch, useSelector } from "react-redux";
 
-const ModalLinea = ({modalOpen, setModalOpen}) => {
+const ModalLinea = () => {
+  const { modalOpen } = useSelector( state => state.ui );
+
+  const dispatch = useDispatch();
+
 
 
   const closeModal = () => {
-    setModalOpen(false)
-  };
+    dispatch( uiCloseModal() );
+
+}
 
 
   return (
@@ -24,7 +31,7 @@ const ModalLinea = ({modalOpen, setModalOpen}) => {
         >
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
-        <ModalContentLinea setModalOpen={setModalOpen}/>
+        <ModalContentLinea/>
         
 
         

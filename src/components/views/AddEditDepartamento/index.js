@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { AgregarButton, CloseButton, FormularioDepartamento } from '../../atoms';
 import { AgregarCentroCosto, ModalLinea, TablaCentrosCostoAsignados, TablaLineasAsignadas } from '../../organisms';
+import { useDispatch } from 'react-redux';
+import { uiOpenModal } from '../../../actions/ui';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddEditDepartamento = () => {
-    const [modalOpen, setModalOpen] = useState(false)
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
     const addLinea = () => {
-        setModalOpen(true)
+        dispatch( uiOpenModal() );
       };
 
       const saveDeparment = () => {
-        console.log("Guardar Departamento");
+        navigate(`/`)
       };
 
       const handleReturn = () => {
-        console.log("Guardar Departamento");
+
+        navigate(`/`)
       };
 
     return ( 
@@ -87,7 +92,7 @@ const AddEditDepartamento = () => {
                 </div>
                
             </div>
-            <ModalLinea modalOpen={modalOpen} setModalOpen={setModalOpen} />
+            <ModalLinea />
 
            
         </>

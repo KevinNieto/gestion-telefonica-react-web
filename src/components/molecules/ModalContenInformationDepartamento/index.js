@@ -1,14 +1,18 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {  ContentCentrosLinea } from "../../organisms";
+import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
+import { useDispatch } from "react-redux";
 
 //COMIENZO DEL COMPONENTE
 
 const ModalContentInformationDepartamento = ({setModalInformation}) => {
-  const closeModal = () => {
-    setModalInformation(false)
-  };
+  const dispatch = useDispatch();
 
+  const closeModal = () => {
+    dispatch( noActiveInformation() );
+    dispatch( uiCloseModal()) ;
+  };
 
   return (
     <div className="w fixed z-10 inset-0 overflow-y-auto">

@@ -12,7 +12,7 @@ import { AccionesCentros } from '../../molecules';
 import { uiOpenModal } from '../../../actions/ui';
 import { useDispatch } from 'react-redux';
 
-const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
+const TablaCentroCosto = () => {
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -48,8 +48,7 @@ const TablaCentroCosto = ({setModalOpen, setModalInformation}) => {
                       </TableCell>
     
                       <AccionesCentros
-                          setModalInformation={setModalInformation}
-                          setModalOpen={setModalOpen}
+
                
                
                       />

@@ -1,15 +1,23 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ModalContent, ModalContentDepartamento } from "../../molecules";
+import { ModalContenInformationDepartamento, ModalContent, ModalContentDepartamento } from "../../molecules";
+import { useDispatch, useSelector } from "react-redux";
+import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
 
-const ModalDepartamento = ({modalOpen, setModalOpen}) => {
+const ModalDepartamento = () => {
+  const { modalOpen } = useSelector( state => state.ui );
+  const { information } = useSelector( state => state.ui );
+  const dispatch = useDispatch();
+
 
 
   const closeModal = () => {
-    setModalOpen(false)
-  };
+    dispatch( uiCloseModal() );
+    if (information) {
+      dispatch( noActiveInformation() );
+    }
 
-
+}
   return (
     <Transition.Root show={modalOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -24,7 +32,9 @@ const ModalDepartamento = ({modalOpen, setModalOpen}) => {
         >
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
-        <ModalContentDepartamento/>
+
+        {information  ? <ModalContenInformationDepartamento /> : <ModalContentDepartamento/> }
+
         
 
         

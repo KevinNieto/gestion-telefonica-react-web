@@ -4,7 +4,7 @@ import { FormularioLinea } from "../../atoms";
 
 
 //COMIENZO DEL COMPONENTE
-const ModalContent = ({setModalOpen}) => {
+const ModalContent = () => {
 
 
 
@@ -32,7 +32,7 @@ const ModalContent = ({setModalOpen}) => {
                   >
                     Ingresa la linea de telefono
                   </Dialog.Title>
-                  <FormularioLinea setModalOpen={setModalOpen}/>
+                  <FormularioLinea />
                 </div>
               </div>
             </div>

@@ -1,12 +1,14 @@
 import React from 'react';
+import { uiCloseModal } from '../../../actions/ui';
+import { useDispatch } from 'react-redux';
 
-const FormularioLinea = ({setModalOpen}) => {
-  
+const FormularioLinea = () => {
+  const dispatch = useDispatch();
 
-    const handleEdit = () => {
-    
-        setModalOpen(false)
-      };
+  const closeModal = () => {
+    dispatch( uiCloseModal() );
+
+}
     return ( 
        <>
       
@@ -31,7 +33,7 @@ const FormularioLinea = ({setModalOpen}) => {
 
                      
                       <button
-                            onClick={handleEdit}
+                            onClick={closeModal}
                         
                             className="bg-purple-500 w-full hover:bg-green-700 text-white text-sm font-bold py-2   rounded"
                             >

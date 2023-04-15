@@ -1,12 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
+import { uiCloseModal } from '../../../actions/ui';
+import { useDispatch } from 'react-redux';
 
 const FormularioDepartamento = () => {
     const navigate = useNavigate()
-
+    const dispatch = useDispatch();
     const handleEdit = (e) => {
         e.preventDefault()
+
         navigate(`/departamento/12312`)
+        dispatch( uiCloseModal() );
       };
     return ( 
        <>

@@ -3,10 +3,12 @@ import { TableCell } from '@mui/material'
 import Swal from 'sweetalert2'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { activeInformation, uiOpenModal } from '../../../actions/ui'
 
-const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
+const AccionesDepartamentos = () => {
   const navigate = useNavigate()
-
+  const dispatch = useDispatch();
   
   const handleEdit = (e) => {
     e.preventDefault()
@@ -38,7 +40,8 @@ const AccionesDepartamentos = ({setModalInformation, setModalOpen}) => {
 
   const handleInformation = (e) => {
     e.preventDefault()
-    setModalInformation(true)
+    dispatch( activeInformation() );
+    dispatch( uiOpenModal() );
   }
   
   

@@ -10,14 +10,16 @@ import Paper from '@mui/material/Paper';
 import { AgregarButton } from '../../atoms';
 import { AccionesDepartamentos } from '../../molecules';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { uiOpenModal } from '../../../actions/ui';
 
 
-const TablaDepartamentos = ({setModalOpen, setModalInformation}) => {
-  const navigate = useNavigate()
+const TablaDepartamentos = () => {
+  const dispatch = useDispatch();
+
   const openModal = () => {
-    setModalOpen(true)
+    dispatch( uiOpenModal() );
   };
-
   
     return ( 
         <div className="pt-6 px-6 ">
@@ -70,9 +72,8 @@ const TablaDepartamentos = ({setModalOpen, setModalInformation}) => {
 
     
                       <AccionesDepartamentos
-                          setModalInformation={setModalInformation}
-                          setModalOpen={setModalOpen}
-               
+             
+
                
                       />
                       

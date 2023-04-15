@@ -5,7 +5,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { activeInformation, uiOpenModal } from '../../../actions/ui'
 
- const AccionesCentros = ({setModalInformation, setModalOpen}) => {
+ const AccionesCentros = () => {
   const dispatch = useDispatch();
 
   const openModalInformation = () => {
