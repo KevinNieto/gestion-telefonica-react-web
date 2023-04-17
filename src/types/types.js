@@ -4,6 +4,9 @@ export const types = {
     uiOpenModal: '[ui] Open modal',
     uiCloseModal: '[ui] Close modal',
 
+    login: '[auth] User Login',
+    logout: '[auth] User Logout',
+
     activeInformation: '[ui] Active Information modal',
     noActiveInformation: '[ui] Close Information modal',
 

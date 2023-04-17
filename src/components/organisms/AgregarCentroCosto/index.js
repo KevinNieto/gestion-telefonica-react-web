@@ -5,8 +5,6 @@ import Swal from 'sweetalert2';
 
 const AgregarCentroCosto = () => {
   const { centros } = useSelector( state => state.centros );
-  const [centrosTemporales, setCentrosTemporales] = useState(centros)
-  console.log("centros temporales", centrosTemporales);
 
 
 

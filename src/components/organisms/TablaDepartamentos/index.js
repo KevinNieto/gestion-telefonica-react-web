@@ -16,6 +16,7 @@ import { uiOpenModal } from '../../../actions/ui';
 
 const TablaDepartamentos = () => {
   const { departamentos } = useSelector( state => state.departamentos ); 
+  const { isAuth } = useSelector( state => state.auth ); 
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -26,7 +27,13 @@ const TablaDepartamentos = () => {
         <div className="pt-6 px-6 ">
             <h1 className="pl-20 text-2xl font-light mb-2">Tabla Departamentos</h1>
             <div className='pl-20 flex justify-right  mx-auto'>
-                <AgregarButton title={"Nuevo Departamento"} event={openModal}/>
+                {isAuth ? 
+                <AgregarButton title={"Nuevo Departamento"} event={openModal}/>: null
+                
+                }
+
+
+                
             </div>
             <div className='pt-3 flex justify-start max-w-5xl mx-auto'>
                 

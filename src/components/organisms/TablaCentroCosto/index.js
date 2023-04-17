@@ -13,7 +13,8 @@ import { uiOpenModal } from '../../../actions/ui';
 import { useDispatch, useSelector } from 'react-redux';
 
 const TablaCentroCosto = () => {
-  const { centros } = useSelector( state => state.centros ); 
+  const { centros } = useSelector( state => state.centros );
+  const { isAuth } = useSelector( state => state.auth );  
   const { modalOpen } = useSelector( state => state.ui );
   const dispatch = useDispatch();
 
@@ -30,7 +31,11 @@ const TablaCentroCosto = () => {
         <div className=" px-6 ">
             <h1 className="text-2xl font-light mb-2">Tabla Centro de Costos</h1>
             <div className='flex justify-right  mx-auto'>
-                <AgregarButton title={"Nuevo Centro de Costo"} event={openModal}/>
+            {isAuth ? 
+                <AgregarButton title={"Nuevo Centro de Costo"} event={openModal}/>: null
+                
+                }
+                
             </div>
             <div className='pt-3 flex justify-center max-w-5xl mx-auto'>
                 

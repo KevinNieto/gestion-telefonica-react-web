@@ -5,6 +5,7 @@ import { centroReducer } from './centroReducer';
 import { departamentoReducer } from './departamentoReducer';
 import { temporalReducer } from './temporalReducer';
 import { lineaReducer } from './lineaReducer';
+import { authReducer } from './authReducer';
 
 
 
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
     departamentos: departamentoReducer,
     temporales: temporalReducer,
     lineas: lineaReducer,
+    auth: authReducer,
     // TODO: AuthReducer
 })
 

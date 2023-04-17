@@ -6,6 +6,8 @@ import { uiOpenModal } from '../../../actions/ui';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { clearActiveDepartamento, departamentoUpdated } from '../../../actions/departamentos';
+import { lineaAddNew } from '../../../actions/linea';
+import { temporalAddNew } from '../../../actions/temporal';
 
 const initDepartamento = {
     nombre: '',
@@ -30,6 +32,8 @@ const AddEditDepartamento = () => {
             id,
             limite,
             disponibles,
+            centrosAsignados,
+            lineasAsignadas,
         }=activeDepartamento; 
 
         usadasD =lineas.length

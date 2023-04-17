@@ -2,11 +2,12 @@ import { InformationCircleIcon, PencilIcon, TrashIcon } from '@heroicons/react/o
 import { TableCell } from '@mui/material'
 import Swal from 'sweetalert2'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { activeInformation, uiOpenModal } from '../../../actions/ui'
 import { centroDeleted, centroSetActive } from '../../../actions/centros'
 
  const AccionesCentros = ({row}) => {
+  const { isAuth } = useSelector( state => state.auth );   
   const dispatch = useDispatch();
 
   const openModalInformation = () => {
@@ -66,7 +67,11 @@ import { centroDeleted, centroSetActive } from '../../../actions/centros'
   
   return (
     <TableCell align="right">
-                <button
+
+        {
+          isAuth ?(
+              <>
+                <button          
                   type="button"
                   onClick={openModalInformation}
                   className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-1 rounded"
@@ -90,6 +95,23 @@ import { centroDeleted, centroSetActive } from '../../../actions/centros'
                 >
                   <TrashIcon className="h-4 w-4" aria-hidden="true" />
                 </button>
+              </>
+          ) :(
+          <>
+            <button          
+              type="button"
+              onClick={openModalInformation}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-1 rounded"
+      
+            >
+              <InformationCircleIcon className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </>
+
+          ) 
+        }
+               
+
 
     </TableCell>
   )

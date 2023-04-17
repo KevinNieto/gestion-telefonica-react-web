@@ -10,7 +10,7 @@ const initialState = {
         usadas: 0,
         disponibles:3,
         centros:0, 
-        centrosAsignadas: [],
+        centrosAsignados: [],
         lineasAsignadas:[]
 
     }],
