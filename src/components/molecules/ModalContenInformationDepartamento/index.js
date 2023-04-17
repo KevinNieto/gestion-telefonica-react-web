@@ -2,16 +2,30 @@ import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {  ContentCentrosLinea } from "../../organisms";
 import { noActiveInformation, uiCloseModal } from "../../../actions/ui";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearActiveDepartamento } from "../../../actions/departamentos";
 
 //COMIENZO DEL COMPONENTE
 
 const ModalContentInformationDepartamento = ({setModalInformation}) => {
+  const { activeDepartamento } = useSelector( state => state.departamentos );
+  const {
+    id,
+    nombre,
+    limite,
+    usadas,
+    disponibles,
+    centros, 
+    centrosAsignados,
+    lineasAsignadas
+  
+  }= activeDepartamento;
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch( noActiveInformation() );
     dispatch( uiCloseModal()) ;
+    dispatch(clearActiveDepartamento()); 
   };
 
   return (
@@ -41,10 +55,10 @@ const ModalContentInformationDepartamento = ({setModalInformation}) => {
                   <div className="col-span-1 sm:col-span-3">
                       {/* Aqui metes esa  papada */}
                       <ul className=" text-md space-y-1">
-                         <li className="text-gray-900"> <b>Nombre: </b> BAC</li>
-                         <li className="text-gray-900"> <b>Numero de Lineas: </b>7</li>
-                         <li className="text-gray-900"> <b>Usadas: </b>7</li>
-                         <li className="text-gray-900"> <b>Disponibles: </b>7</li>
+                         <li className="text-gray-900"> <b>Nombre: </b> {nombre} </li>
+                         <li className="text-gray-900"> <b>Numero de Lineas: </b>{limite}</li>
+                         <li className="text-gray-900"> <b>Usadas: </b>{usadas}</li>
+                         <li className="text-gray-900"> <b>Disponibles: </b>{disponibles}</li>
 
                      </ul>
                   </div>
@@ -52,23 +66,24 @@ const ModalContentInformationDepartamento = ({setModalInformation}) => {
                   <div     
                     className={`mt-2`}
                   >
-
+                        <ContentCentrosLinea 
+                        title={"Centro de Costos  Asignados"}
+                        contenido={centrosAsignados}
+                    />
                      
-                      <ContentCentrosLinea 
-                          title={"Centro de Costos  Asinados"}
-                          row={"Desarrollo"}
-                      />
+
                   </div>
 
                   <div     
                     className={`mt-2`}
                   >
 
-                     
+
                       <ContentCentrosLinea 
-                          title={"Lineas asignadas"}
-                          row={"1231231231"}
-                      />
+                      title={"Lineas Asignadas"}
+                      contenido={lineasAsignadas}
+                    />
+
                   </div>
                   <div     
                     className={`mt-2`}

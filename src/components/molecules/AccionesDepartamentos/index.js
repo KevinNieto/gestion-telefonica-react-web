@@ -58,6 +58,7 @@ const AccionesDepartamentos = ({row}) => {
 
   const handleInformation = (e) => {
     e.preventDefault()
+    dispatch( departamentoSetActive(row) ) 
     dispatch( activeInformation() );
     dispatch( uiOpenModal() );
   }

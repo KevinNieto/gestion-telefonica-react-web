@@ -3,13 +3,13 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 
 
-const CeldaPuntodeReferencia = ({row}) => {
+const CeldaPuntodeReferencia = ({id, name, numero}) => {
 
 
   return (
     <>
         <TableRow
-                                  key={1234}
+                                  key={id}
                                   sx={{
                                     "&:last-child td, &:last-child th": {
                                       border: 0,
@@ -22,7 +22,8 @@ const CeldaPuntodeReferencia = ({row}) => {
                                     scope="row"
                                     className="text-sm font-light text-gray-900"
                                   >
-                                    {row}
+                                    {numero}
+                                    {name}
                                   </TableCell>
                                  
                                 </TableRow>

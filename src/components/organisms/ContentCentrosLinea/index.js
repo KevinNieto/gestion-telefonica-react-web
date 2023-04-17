@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import {  CeldaCentroLinea } from '../../molecules';
 
 
-const ContentCentrosLinea = ({title,row}) => {
+const ContentCentrosLinea = ({title,contenido}) => {
     return (
     <>
     {/* Tabla de Puntos de Referencia */}
@@ -22,9 +22,17 @@ const ContentCentrosLinea = ({title,row}) => {
                             aria-label="simple table"
                           >
                             <TableBody>
-                             
-                                <CeldaCentroLinea row={row} />
-                            
+                            {
+       
+                     
+                  
+                               contenido.map((row) => (  
+                                <CeldaCentroLinea 
+                                  id={row.id} 
+                                  numero={row.numero} 
+                                  name={row.name} />
+                                ))                  
+                              }
                             </TableBody>
                           </Table>
                         </TableContainer>
