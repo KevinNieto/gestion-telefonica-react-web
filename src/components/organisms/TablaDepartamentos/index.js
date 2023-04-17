@@ -25,8 +25,8 @@ const TablaDepartamentos = () => {
   
     return ( 
         <div className="pt-6 px-6 ">
-            <h1 className="pl-20 text-2xl font-light mb-2">Tabla Departamentos</h1>
-            <div className='pl-20 flex justify-right  mx-auto'>
+            <h1 className=" text-2xl font-light mb-2">Tabla Departamentos</h1>
+            <div className=' flex justify-right  mx-auto'>
                 {isAuth ? 
                 <AgregarButton title={"Nuevo Departamento"} event={openModal}/>: null
                 

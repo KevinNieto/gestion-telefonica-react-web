@@ -8,7 +8,7 @@ export const lineaAddNew = (linea) => ({
 });
 
 
-export const clearlinea = () => ({ type: types.clearLinea });
+export const clearlineas = () => ({ type: types.clearLineas });
 
 export const lineaDeleted = () => ({ type: types.lineaDeleted });
 

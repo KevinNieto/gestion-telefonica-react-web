@@ -1,18 +1,21 @@
 import { InformationCircleIcon, PencilIcon, TrashIcon } from '@heroicons/react/outline'
 import { TableCell } from '@mui/material'
 import Swal from 'sweetalert2'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { activeInformation, uiOpenModal } from '../../../actions/ui'
-import { departamentoDeleted, departamentoSetActive } from '../../../actions/departamentos'
+import { clearActiveDepartamento, departamentoDeleted, departamentoSetActive } from '../../../actions/departamentos'
+import { temporalAddNew } from '../../../actions/temporal'
+import { lineaAddNew } from '../../../actions/linea'
 
 const AccionesDepartamentos = ({row}) => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { isAuth } = useSelector( state => state.auth );    
-  const handleEdit = (e) => {
+  const { isAuth } = useSelector( state => state.auth ); 
+  const  handleEdit = (e) => {
     e.preventDefault()
+    dispatch( departamentoSetActive(row) ) 
     Swal.fire({
       title: '¿Quieres actualizar este departamento?',
       icon: 'warning',
@@ -22,10 +25,13 @@ const AccionesDepartamentos = ({row}) => {
       confirmButtonText: 'Si'
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log('Entro aqui con exito', row); 
-        dispatch( departamentoSetActive(row) ) 
+    
+    
+
         navigate(`/departamento/${row.id}`)
-      }   
+      }else{
+        dispatch(clearActiveDepartamento())
+      }  
     })
     
   
@@ -62,7 +68,7 @@ const AccionesDepartamentos = ({row}) => {
     dispatch( activeInformation() );
     dispatch( uiOpenModal() );
   }
-  
+
   
   
   return (

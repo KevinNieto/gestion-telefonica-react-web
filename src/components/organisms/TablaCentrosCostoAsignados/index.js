@@ -4,12 +4,16 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import { CeldaCentroCosto } from '../../molecules';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { temporalAddNew, useTemporals } from '../../../actions/temporal';
 
 
 const TablaCentroCosto = () => {
+  const dispatch = useDispatch();
   const { temporales } = useSelector( state => state.temporales );
 
+ 
+  
   return (
     <>
     {/* Tabla de Puntos de Referencia */}

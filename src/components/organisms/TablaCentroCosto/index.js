@@ -28,7 +28,7 @@ const TablaCentroCosto = () => {
 }, [ modalOpen ]);
 
     return ( 
-        <div className=" px-6 ">
+        <div className="pt-6  px-6 ">
             <h1 className="text-2xl font-light mb-2">Tabla Centro de Costos</h1>
             <div className='flex justify-right  mx-auto'>
             {isAuth ? 

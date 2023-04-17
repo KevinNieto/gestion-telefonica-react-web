@@ -28,7 +28,6 @@ import { centroDeleted, centroSetActive } from '../../../actions/centros'
       confirmButtonText: 'Si'
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log('Entro aqui con exito', row); 
         dispatch( centroSetActive(row) ) 
         dispatch( uiOpenModal() );
       }   

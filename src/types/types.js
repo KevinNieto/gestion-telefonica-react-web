@@ -25,13 +25,14 @@ export const types = {
 
     temporalAddNew: '[temporal] Add new',
     temporalDeleted: '[temporal] temporal deleted',
-    clearTemporal: '[temporal] Clear temporal',
+    useTemporals:'[temporal]  useTemporals',
+    clearTemporales: '[temporal] Clear temporal',
     temporalSetActive: '[temporal] Set Active',
     clearActiveTemporal: '[temporal] Clear active Temporal',
 
     lineaAddNew: '[linea] Add new',
     lineaDeleted: '[linea] linea deleted',
-    clearLinea: '[linea] Clear linea',
+    clearLineas: '[linea] Clear linea',
     lineaSetActive: '[linea] Set Active',
     clearActiveLinea: '[linea] Clear active linea',
 

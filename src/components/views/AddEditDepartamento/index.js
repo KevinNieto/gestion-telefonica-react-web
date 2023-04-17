@@ -6,8 +6,8 @@ import { uiOpenModal } from '../../../actions/ui';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { clearActiveDepartamento, departamentoUpdated } from '../../../actions/departamentos';
-import { lineaAddNew } from '../../../actions/linea';
-import { temporalAddNew } from '../../../actions/temporal';
+import {  clearlineas, lineaAddNew } from '../../../actions/linea';
+import {temporalAddNew, clearTemporales, useTemporals} from '../../../actions/temporal';
 
 const initDepartamento = {
     nombre: '',
@@ -17,16 +17,22 @@ const initDepartamento = {
 
 
 const AddEditDepartamento = () => {
+    const dispatch = useDispatch();
     const { lineas } = useSelector( state => state.lineas );
     const { temporales } = useSelector( state => state.temporales );
+    const { activeDepartamento } = useSelector( state => state.departamentos );
+
+
     const centrosCount=temporales.length
     const navigate = useNavigate()
-    const dispatch = useDispatch();
+    
     let usadasD ='NA'
     let disponiblesD ='NA'
     let idN= 'NA'
 
-    const { activeDepartamento } = useSelector( state => state.departamentos );
+;
+
+
     if (activeDepartamento) {
         const {
             id,
@@ -39,7 +45,15 @@ const AddEditDepartamento = () => {
         usadasD =lineas.length
         disponiblesD =limite-usadasD 
         idN= id
+
+    
         
+
+
+
+
+
+
         
 
     }
@@ -81,6 +95,9 @@ const AddEditDepartamento = () => {
         }
         dispatch( departamentoUpdated( departamentoNuevo ) )
         dispatch( clearActiveDepartamento() );
+        dispatch( clearlineas() );
+        dispatch(clearTemporales() );
+
         Swal.fire(
           'Departamento actualizado con exito!',
           '',
@@ -98,18 +115,20 @@ const AddEditDepartamento = () => {
       };
 
       const handleReturn = () => {
+        dispatch( clearActiveDepartamento() );
+        dispatch( clearlineas() );
+        dispatch(clearTemporales() );
 
         navigate(`/`)
       };
 
-      useEffect(() => {
-        if ( activeDepartamento ) {
-          console.log(activeDepartamento);
-          setFormValues( activeDepartamento );
-        } else {
-          setFormValues( initDepartamento );
-        }
-     }, [activeDepartamento, setFormValues])
+    useEffect(() => {
+       if ( activeDepartamento ) {
+         setFormValues( activeDepartamento );
+       } else {
+         setFormValues( initDepartamento );
+       }
+    }, [activeDepartamento, setFormValues])
 
 
       const handleInputChange = ({ target }) => {

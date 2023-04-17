@@ -7,8 +7,14 @@ export const temporalAddNew = (temporal) => ({
     payload: temporal
 });
 
+export const useTemporals = (temporal) => ({
+    type: types.useTemporals,
+    payload: temporal
+});
 
-export const clearTemporal = () => ({ type: types.clearTemporal });
+
+
+export const clearTemporales = () => ({ type: types.clearTemporales });
 
 export const temporalDeleted = () => ({ type: types.temporalDeleted });
 

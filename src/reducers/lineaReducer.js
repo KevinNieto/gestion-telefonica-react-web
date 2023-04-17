@@ -22,7 +22,7 @@ export const lineaReducer = ( state = initialState, action ) => {
                 ]
             }
     
-        case types.clearLinea: 
+        case types.clearLineas: 
             return {
                 lineas: []
             }

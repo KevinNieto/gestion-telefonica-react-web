@@ -21,8 +21,15 @@ export const temporalReducer = ( state = initialState, action ) => {
                     action.payload
                 ]
             }
+
+        case types.useTemporals:
+            return {
+                ...state,
+                temporales:  action.payload
+                
+            }
     
-        case types.temporalclearTemporal:
+        case types.clearTemporales:
             return {
                 temporales: []
             }
