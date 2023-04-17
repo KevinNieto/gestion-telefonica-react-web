@@ -66,7 +66,8 @@ const AddEditDepartamento = () => {
       };
 
       const handleNuevoDepartamento = () => {
-        const {nombre, limite } = formValues;
+        if (centrosCount !== 0) {
+            const {nombre, limite } = formValues;
 
         const departamentoNuevo = {
             id: idN,
@@ -86,6 +87,14 @@ const AddEditDepartamento = () => {
           'success'
         )
         navigate(`/`)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes Asignarle almenos un centro de costos al departamento'
+              })
+        }
+        
       };
 
       const handleReturn = () => {

@@ -5,7 +5,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { activeInformation, uiOpenModal } from '../../../actions/ui'
-import { departamentoSetActive } from '../../../actions/departamentos'
+import { departamentoDeleted, departamentoSetActive } from '../../../actions/departamentos'
 
 const AccionesDepartamentos = ({row}) => {
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ const AccionesDepartamentos = ({row}) => {
   const handleDelete = (e) => {
     e.preventDefault()
     Swal.fire({
-      title: '¿Deseas eliminar este centro de costo?',
+      title: '¿Deseas eliminar este Departamento?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -47,6 +47,8 @@ const AccionesDepartamentos = ({row}) => {
           '',
           'success'
         )
+        dispatch( departamentoSetActive(row) ) 
+        dispatch( departamentoDeleted())
         
       }
       
